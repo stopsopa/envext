@@ -1,0 +1,18 @@
+{
+  "name": "stopsopa/envext",
+  "authors": [
+    {
+      "name": "Szymon Działowski",
+      "email": "szymon.dzialowski@gmail.com"
+    }
+  ],
+  "autoload": {
+    "files" : [
+      "src/d.php",
+      "src/dd.php"
+    ]
+  },
+  "require" : {
+    "symfony/var-dumper": "^3.1"
+  }
+}
