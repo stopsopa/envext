@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * @param $data
+ * @param bool $return
+ * @param null $trace
+ * @throws Exception
+ */
 function d($data, $return = false, $trace = null) {
 
     if (!function_exists('dump')) {
