@@ -1,5 +1,7 @@
 {
   "name": "stopsopa/envext",
+  "license": "MIT",
+  "description": "Debugging tools based on symfony VarDumper Component to install locally on dev machine",
   "authors": [
     {
       "name": "Szymon Działowski",

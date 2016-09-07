@@ -1,33 +1,21 @@
 <?php
 
-/**
- * @param $data
- * @param bool $return
- * @param null $trace
- * @throws Exception
- */
-function d($data, $return = false, $trace = null) {
-
-    if (!function_exists('dump')) {
-        throw new \Exception("Can't find dump() function, install: composer global require symfony/var-dumper");
+if (function_exists('d')) {
+    /**
+     * Breaks/terminates script after print variable
+     */
+    function _d($data, $trace = null) {
+        _dd($data, $trace = debug_backtrace());
+        die();
+    }
+}
+else {
+    /**
+     * Breaks/terminates script after print variable
+     */
+    function d($data, $trace = null) {
+        dd($data, $trace = debug_backtrace());
+        die();
     }
 
-    if (!$trace) {
-        $trace = debug_backtrace();
-    }
-
-    $trace = array_shift($trace);
-
-    $line = $trace['file'].':'.$trace['line'];
-
-    if ('cli' === PHP_SAPI) {
-        $line .= "\n";
-    }
-    else {
-        $line = '<div style="padding:3px;background-color:#B13030;color:#F9FF00;font:12px Menlo,Monaco,Consolas,monospace;margin-bottom:-12px;">'.$line.'</div>';
-    }
-
-    echo $line;
-
-    dump($data);
 }
