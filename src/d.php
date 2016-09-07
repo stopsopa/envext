@@ -1,10 +1,7 @@
 <?php
 
 /**
- * @param $data
- * @param bool $return
- * @param null $trace
- * @throws Exception
+ * Prints variable and allow script to continue.
  */
 function d($data, $return = false, $trace = null) {
 
