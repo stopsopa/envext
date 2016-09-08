@@ -22,7 +22,7 @@ Usage
 This library provides two functions "d()" and "dd()":
 
 * function d() prints data and terminate script by die()
-* function dd() prints data and lets script to continue
+* function dd() prints data and allows script to continue
 
 Installation without including to project
 ===
@@ -37,16 +37,29 @@ add to php.ini (http and cli mode):
     
     auto_prepend_file = /bin/vendor/autoload.php  
     
-restart apache (... or other http server)
+add to nginx configuration (usually somewhere in /etc/nginx/sites-enabled/default.conf)
+ 
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_index app.php;
+        include fastcgi_params;
+        fastcgi_intercept_errors on;
+        fastcgi_param PHP_VALUE "auto_prepend_file = /bin/vendor/autoload.php";
+    }
+ 
+    
+restart nginx/apache (... or other http server)
     
 centos    
   
   
+    /etc/init.d/nginx restart
     sudo apachectl restart
      
 ubuntu
      
      
+    sudo service nginx restart
     sudo service apache2 restart
 
 Test
@@ -56,13 +69,13 @@ cli
 
 
 
-    echo '<?php d("test");' > test.php && php test.php && rm test.php
+    echo '<?php dd("one");d("stop here");d("should t see this");' > test.php && php test.php && rm test.php
     
     
 web
     
     
-    echo '<?php d("test");' > test.php
+    echo '<?php dd("one");d("stop here");d("should t see this");' > test.php && php test.php || true && rm test.php
     
 ... and call from web, then remove test.php    
     
