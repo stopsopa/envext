@@ -25,7 +25,7 @@ if (function_exists('dd')) {
             $line = '<div style="padding:3px;background-color:#B13030;color:#F9FF00;font:12px Menlo,Monaco,Consolas,monospace;margin-bottom:-12px;">'.$line.'</div>';
         }
 
-        echo $line;
+        fwrite(STDOUT, $line);
 
         dump($data);
     }
@@ -55,7 +55,7 @@ else {
             $line = '<div style="padding:3px;background-color:#B13030;color:#F9FF00;font:12px Menlo,Monaco,Consolas,monospace;margin-bottom:-12px;">' . $line . '</div>';
         }
 
-        echo $line;
+        fwrite(STDOUT, $line);
 
         dump($data);
     }
