@@ -16,7 +16,13 @@ if (function_exists('dd')) {
 
         $trace = array_shift($trace);
 
-        $line = $trace['file'].':'.$trace['line'];
+        $line = $trace['file'];
+
+        if (strpos(strtolower($line), '.php') === (strlen($line) - 4) ) {
+            $line = substr($line, 0, -4);
+        }
+
+        $line .= ':'.$trace['line'];
 
         if ('cli' === PHP_SAPI) {
             $line .= "\n";
@@ -47,7 +53,13 @@ else {
 
         $trace = array_shift($trace);
 
-        $line = $trace['file'] . ':' . $trace['line'];
+        $line = $trace['file'];
+
+        if (strpos(strtolower($line), '.php') === (strlen($line) - 4) ) {
+            $line = substr($line, 0, -4);
+        }
+
+        $line .= ':'.$trace['line'];
 
         if ('cli' === PHP_SAPI) {
             $line .= "\n";
