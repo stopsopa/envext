@@ -75,7 +75,7 @@ cli
 web
     
     
-    echo '<?php dd("one");d("stop here");d("should t see this");' > test.php && php test.php || true && rm test.php
+    echo '<?php dd("one");d("stop here");d("should t see this");' > test.php
     
 ... and call from web, then remove test.php    
     
