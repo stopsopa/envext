@@ -9,6 +9,7 @@
     }
   ],
   "autoload": {
+    "psr-4": { "Stopsopa\\VarDumper\\": "src/" },
     "files" : [
       "src/d.php",
       "src/dd.php"
