@@ -1,9 +1,5 @@
 <?php
 
-if (!defined('STDOUT')) {
-    define('STDOUT', fopen('php://output', 'w'));
-}
-
 if (function_exists('d')) {
     /**
      * Breaks/terminates script after print variable
