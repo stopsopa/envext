@@ -35,8 +35,13 @@ class Profile {
             static::traceLine(debug_backtrace())
         );
     }
-    public function enable($true = true) {
-        $this->enabled = $true;
+    public function enable() {
+        $this->enabled = true;
+        return $this;
+    }
+    public function disable() {
+        $this->enabled = false;
+        return $this;
     }
     public function isEnabled() {
         return $this->enabled;
