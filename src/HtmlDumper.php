@@ -28,7 +28,12 @@ class HtmlDumper extends BaseHtmlDumper {
                     var open = true;
                     td.addEventListener('click', function () {
                         (function loop(l) {
-                            l = td.parentNode.nextSibling.nextSibling.nextSibling;
+                            l = td.parentNode;
+                            for(;;) {
+                                l = l.nextSibling;
+                                if (l.nodeType === Node.TEXT_NODE) continue;
+                                if (!l || !l.tagName || l.tagName.toLowerCase() === 'pre') break;
+                            }
                             if (l) {
                                 l = l.querySelectorAll(open ? '.sf-dump-compact' : '.sf-dump-expanded');
                                 td.innerHTML = open ? a : b;
