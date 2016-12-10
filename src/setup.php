@@ -1,5 +1,6 @@
 <?php
 
+// http://stackoverflow.com/a/28898174
 if (!defined('STDOUT')) {
     define('STDOUT', fopen('php://output', 'w'));
 }
