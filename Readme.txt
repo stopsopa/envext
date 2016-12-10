@@ -1,0 +1,1 @@
+php -d memory_limit=-1 composer.phar require  symfony/var-dumper:v2.8.14
