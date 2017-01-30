@@ -37,7 +37,7 @@ add to php.ini (http and cli mode):
     
     auto_prepend_file = /bin/vendor/autoload.php  
     
-add to nginx configuration (usually somewhere in /etc/nginx/sites-enabled/default.conf)
+setup nginx (usually somewhere in /etc/nginx/sites-enabled/default.conf) ...
  
     location ~ \.php$ {
         fastcgi_pass unix:/var/run/php5-fpm.sock;
@@ -47,6 +47,13 @@ add to nginx configuration (usually somewhere in /etc/nginx/sites-enabled/defaul
         fastcgi_param PHP_VALUE "auto_prepend_file = /bin/vendor/autoload.php";
     }
  
+.. or setup apache2
+
+    <Directory />
+        AllowOverride none
+        Require all denied
+        Php_value auto_prepend_file /bin/vendor/autoload.php
+    </Directory>
     
 restart nginx/apache (... or other http server)
     
