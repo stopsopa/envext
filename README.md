@@ -33,7 +33,7 @@ Installation without including to project
     
     composer require stopsopa/envext:dev-master
     
-add to php.ini (http and cli mode):    
+add to php.ini (http and cli mode) (/etc/php.ini for centos):    
     
     auto_prepend_file = /bin/vendor/autoload.php  
     
