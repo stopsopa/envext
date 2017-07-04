@@ -1,6 +1,5 @@
 
 Deprecated because now it is implemented natively in xdebug and in symfony/var-dumper symfony module.
-
 ===
 
 [![Latest Stable Version](https://poser.pugx.org/stopsopa/envext/v/stable)](https://packagist.org/packages/stopsopa/envext)
